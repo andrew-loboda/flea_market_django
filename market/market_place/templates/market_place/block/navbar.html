@@ -1,0 +1,31 @@
+{% load static %}
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'home' %}" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+          <li><a href="{% url 'contact' %}" class="nav-link px-2 text-white">Contact</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+          <form action="{% url 'search_results' %}" method="get" class="form-inline my-2 my-lg-0">
+            <input name="q" type="text" class="form-control mr-sm-2" placeholder="Поиск" aria-label="Поиск">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">Поиск</button>
+          </form>
+        <div class="text-end">
+          {% if user.is_authenticated %}
+          <span class="navbar-text mr-2">{{ user }}</span>
+            <a href="{% url 'logout' %}" class="btn btn-outline-light">Выход</a>
+          {% else %}
+            <a href="{% url 'signin' %}" class="btn btn-outline-light mr-2">Вход</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline-light mr-2">Регистрация</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>

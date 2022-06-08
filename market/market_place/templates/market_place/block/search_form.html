@@ -1,0 +1,9 @@
+{% load static %}
+<div class="container-fluid home-slider">
+    <h3>Введите ключевые слова
+    </h3>
+ <form action="{% url 'search_results' %}" method="get" class="my-2 my-lg-0">
+     <input name="q" type="text" class="form-control" placeholder="Поиск" aria-label="Поиск">
+     <button class="btn btn-outline-success mt-3" type="submit">Поиск</button>
+ </form>
+</div>
